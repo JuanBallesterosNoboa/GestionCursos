@@ -1,0 +1,11 @@
+@model CursoModel
+@{ ViewData["Title"] = "Eliminar curso"; }
+<section class="panel formulario">
+    <h1>Eliminar curso</h1>
+    <div class="aviso peligro">¿Seguro que quieres eliminar el curso <strong>@Model.nombre</strong>? Esta acción no se puede deshacer.</div>
+    <p class="ayuda">Los cursos que tengan inscripciones no se pueden eliminar hasta retirar dichas inscripciones.</p>
+    <form asp-action="Delete" asp-route-id="@Model.curso_id" method="post">
+        <div class="acciones margen"><button type="submit" class="btn peligro">Confirmar eliminación</button>
+            <a class="btn claro" asp-action="Index">Cancelar</a></div>
+    </form>
+</section>

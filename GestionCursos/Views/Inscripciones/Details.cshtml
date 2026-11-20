@@ -1,0 +1,16 @@
+@model InscripcionModel
+@{ ViewData["Title"] = "Detalle de inscripción"; }
+<section class="panel formulario">
+    <h1>Detalle de inscripción</h1>
+    <dl class="detalle">
+        <dt>ID</dt><dd>@Model.inscripcion_id</dd>
+        <dt>Curso</dt><dd>@Model.Curso?.nombre</dd>
+        <dt>Estudiante</dt><dd>@Model.Estudiante?.nombre @Model.Estudiante?.apellido</dd>
+        <dt>Correo</dt><dd>@Model.Estudiante?.email</dd>
+        <dt>Fecha de inscripción</dt><dd>@Model.fecha_inscripcion.ToString("dd/MM/yyyy")</dd>
+    </dl>
+    <div class="acciones margen">
+        <a class="btn primario" asp-action="Edit" asp-route-id="@Model.inscripcion_id">Editar</a>
+        <a class="btn claro" asp-action="Index">Volver</a>
+    </div>
+</section>

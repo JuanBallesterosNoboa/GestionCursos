@@ -1,0 +1,25 @@
+@model IEnumerable<EstudianteModel>
+@{ ViewData["Title"] = "Estudiantes"; }
+<div class="titulo-fila">
+    <div><h1>Listado de estudiantes</h1><p>Administración de estudiantes registrados.</p></div>
+    <a class="btn exito" asp-action="Create">+ Nuevo estudiante</a>
+</div>
+<section class="panel tabla-wrap">
+    <table>
+        <thead><tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Correo</th><th>Fecha de nacimiento</th><th>Acciones</th></tr></thead>
+        <tbody>
+        @foreach (var x in Model)
+        {
+            <tr><td>@x.estudiante_id</td><td>@x.nombre</td><td>@x.apellido</td>
+                <td>@x.email</td><td>@x.fecha_nacimiento.ToString("dd/MM/yyyy")</td>
+                <td><div class="acciones">
+                    <a class="btn pequeno claro" asp-action="Details" asp-route-id="@x.estudiante_id">Ver</a>
+                    <a class="btn pequeno primario" asp-action="Edit" asp-route-id="@x.estudiante_id">Editar</a>
+                    <a class="btn pequeno peligro" asp-action="Delete" asp-route-id="@x.estudiante_id">Eliminar</a>
+                </div></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (!Model.Any()) { <p class="vacio">No existen estudiantes registrados.</p> }
+</section>

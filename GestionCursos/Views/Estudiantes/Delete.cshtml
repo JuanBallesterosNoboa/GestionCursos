@@ -1,0 +1,11 @@
+@model EstudianteModel
+@{ ViewData["Title"] = "Eliminar estudiante"; }
+<section class="panel formulario">
+    <h1>Eliminar estudiante</h1>
+    <div class="aviso peligro">¿Eliminar al estudiante <strong>@Model.nombre @Model.apellido</strong>? Esta acción no se puede deshacer.</div>
+    <p class="ayuda">Si tiene inscripciones, primero debes eliminarlas.</p>
+    <form asp-action="Delete" asp-route-id="@Model.estudiante_id" method="post">
+        <div class="acciones margen"><button type="submit" class="btn peligro">Confirmar eliminación</button>
+            <a class="btn claro" asp-action="Index">Cancelar</a></div>
+    </form>
+</section>

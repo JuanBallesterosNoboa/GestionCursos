@@ -1,0 +1,29 @@
+@model IEnumerable<InscripcionModel>
+@{ ViewData["Title"] = "Inscripciones"; }
+<div class="titulo-fila">
+    <div><h1>Listado de inscripciones</h1><p>Estudiantes inscritos en cada curso.</p></div>
+    <a class="btn exito" asp-action="Create">+ Nueva inscripción</a>
+</div>
+<section class="panel tabla-wrap">
+    <table>
+        <thead><tr><th>ID</th><th>Curso</th><th>Estudiante</th><th>Correo</th><th>Fecha</th><th>Acciones</th></tr></thead>
+        <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.inscripcion_id</td>
+                <td><strong>@x.Curso?.nombre</strong></td>
+                <td>@x.Estudiante?.nombre @x.Estudiante?.apellido</td>
+                <td>@x.Estudiante?.email</td>
+                <td>@x.fecha_inscripcion.ToString("dd/MM/yyyy")</td>
+                <td><div class="acciones">
+                    <a class="btn pequeno claro" asp-action="Details" asp-route-id="@x.inscripcion_id">Ver</a>
+                    <a class="btn pequeno primario" asp-action="Edit" asp-route-id="@x.inscripcion_id">Editar</a>
+                    <a class="btn pequeno peligro" asp-action="Delete" asp-route-id="@x.inscripcion_id">Eliminar</a>
+                </div></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (!Model.Any()) { <p class="vacio">Aún no hay inscripciones registradas.</p> }
+</section>

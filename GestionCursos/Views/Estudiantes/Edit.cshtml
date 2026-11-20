@@ -1,0 +1,12 @@
+@model EstudianteModel
+@{ ViewData["Title"] = "Editar estudiante"; }
+<section class="panel formulario">
+    <h1>Editar estudiante</h1>
+    <form asp-action="Edit" asp-route-id="@Model.estudiante_id" method="post">
+        <input type="hidden" asp-for="estudiante_id" />
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+        <partial name="_Campos" model="Model" />
+        <div class="acciones margen"><button type="submit" class="btn primario">Guardar cambios</button>
+            <a class="btn claro" asp-action="Index">Cancelar</a></div>
+    </form>
+</section>

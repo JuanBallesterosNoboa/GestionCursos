@@ -1,0 +1,17 @@
+@model CursoModel
+@{ ViewData["Title"] = "Detalle del curso"; }
+<section class="panel formulario">
+    <h1>Detalle del curso</h1>
+    <dl class="detalle">
+        <dt>ID</dt><dd>@Model.curso_id</dd>
+        <dt>Nombre</dt><dd>@Model.nombre</dd>
+        <dt>Descripción</dt><dd>@Model.descripcion</dd>
+        <dt>Fecha de inicio</dt><dd>@Model.fecha_inicio.ToString("dd/MM/yyyy")</dd>
+        <dt>Fecha de fin</dt><dd>@Model.fecha_fin.ToString("dd/MM/yyyy")</dd>
+    </dl>
+    <div class="acciones margen">
+        <a class="btn primario" asp-action="Edit" asp-route-id="@Model.curso_id">Editar</a>
+        <a class="btn exito" asp-controller="Inscripciones" asp-action="Create" asp-route-cursoId="@Model.curso_id">Inscribir estudiante</a>
+        <a class="btn claro" asp-action="Index">Volver</a>
+    </div>
+</section>

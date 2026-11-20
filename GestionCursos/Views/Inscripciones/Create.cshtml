@@ -1,0 +1,12 @@
+@model InscripcionModel
+@{ ViewData["Title"] = "Nueva inscripción"; }
+<section class="panel formulario">
+    <h1>Registrar inscripción</h1>
+    <p>Selecciona un curso y un estudiante. No es posible inscribirlo dos veces en el mismo curso.</p>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+        <partial name="_Campos" model="Model" />
+        <div class="acciones margen"><button type="submit" class="btn exito">Guardar inscripción</button>
+            <a class="btn claro" asp-action="Index">Cancelar</a></div>
+    </form>
+</section>

@@ -1,0 +1,19 @@
+@model EstudianteModel
+<div class="form-grid">
+    <div class="campo">
+        <label asp-for="nombre"></label><input asp-for="nombre" maxlength="100" />
+        <span asp-validation-for="nombre" class="error"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="apellido"></label><input asp-for="apellido" maxlength="100" />
+        <span asp-validation-for="apellido" class="error"></span>
+    </div>
+    <div class="campo ancho">
+        <label asp-for="email"></label><input asp-for="email" type="email" maxlength="150" />
+        <span asp-validation-for="email" class="error"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="fecha_nacimiento"></label><input asp-for="fecha_nacimiento" type="date" />
+        <span asp-validation-for="fecha_nacimiento" class="error"></span>
+    </div>
+</div>

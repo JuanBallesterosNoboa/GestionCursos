@@ -1,0 +1,22 @@
+@model InscripcionModel
+<div class="form-grid">
+    <div class="campo ancho">
+        <label asp-for="curso_id"></label>
+        <select asp-for="curso_id" asp-items="ViewBag.Cursos">
+            <option value="0">-- Seleccione un curso --</option>
+        </select>
+        <span asp-validation-for="curso_id" class="error"></span>
+    </div>
+    <div class="campo ancho">
+        <label asp-for="estudiante_id"></label>
+        <select asp-for="estudiante_id" asp-items="ViewBag.Estudiantes">
+            <option value="0">-- Seleccione un estudiante --</option>
+        </select>
+        <span asp-validation-for="estudiante_id" class="error"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="fecha_inscripcion"></label>
+        <input asp-for="fecha_inscripcion" type="date" />
+        <span asp-validation-for="fecha_inscripcion" class="error"></span>
+    </div>
+</div>

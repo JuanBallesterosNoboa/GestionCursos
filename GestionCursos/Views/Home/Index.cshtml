@@ -1,0 +1,35 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+<section class="portada">
+    <p class="etiqueta">SISTEMA WEB ACADÉMICO - SOFTWARE VI</p>
+    <h1>Administración de cursos y estudiantes</h1>
+    <p>Registra cursos, administra estudiantes y controla las inscripciones desde una sola aplicación.</p>
+</section>
+<section class="tarjetas">
+    <a class="tarjeta" asp-controller="Cursos" asp-action="Index">
+        <span>Cursos registrados</span>
+        <strong>@Model.TotalCursos</strong>
+        <small>Ver y administrar cursos</small>
+    </a>
+    <a class="tarjeta" asp-controller="Estudiantes" asp-action="Index">
+        <span>Estudiantes registrados</span>
+        <strong>@Model.TotalEstudiantes</strong>
+        <small>Ver y administrar estudiantes</small>
+    </a>
+    <a class="tarjeta" asp-controller="Inscripciones" asp-action="Index">
+        <span>Inscripciones realizadas</span>
+        <strong>@Model.TotalInscripciones</strong>
+        <small>Ver y administrar inscripciones</small>
+    </a>
+</section>
+<section class="panel">
+    <h2>Acciones rápidas</h2>
+    <div class="acciones">
+        <a class="btn primario" asp-controller="Cursos" asp-action="Create">+ Nuevo curso</a>
+        <a class="btn primario" asp-controller="Estudiantes" asp-action="Create">+ Nuevo estudiante</a>
+        <a class="btn exito" asp-controller="Inscripciones" asp-action="Create">+ Nueva inscripción</a>
+    </div>
+    <p class="ayuda">Primero registra un curso y un estudiante; después podrás relacionarlos mediante una inscripción.</p>
+</section>

@@ -1,0 +1,12 @@
+@model CursoModel
+@{ ViewData["Title"] = "Nuevo curso"; }
+<section class="panel formulario">
+    <h1>Registrar curso</h1>
+    <p>Completa los campos para agregar un curso al sistema.</p>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+        <partial name="_Campos" model="Model" />
+        <div class="acciones margen"><button type="submit" class="btn exito">Guardar curso</button>
+            <a class="btn claro" asp-action="Index">Cancelar</a></div>
+    </form>
+</section>

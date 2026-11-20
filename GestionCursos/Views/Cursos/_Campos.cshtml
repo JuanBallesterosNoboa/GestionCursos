@@ -1,0 +1,23 @@
+@model CursoModel
+<div class="form-grid">
+    <div class="campo ancho">
+        <label asp-for="nombre"></label>
+        <input asp-for="nombre" maxlength="120" />
+        <span asp-validation-for="nombre" class="error"></span>
+    </div>
+    <div class="campo ancho">
+        <label asp-for="descripcion"></label>
+        <textarea asp-for="descripcion" rows="4" maxlength="600"></textarea>
+        <span asp-validation-for="descripcion" class="error"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="fecha_inicio"></label>
+        <input asp-for="fecha_inicio" type="date" />
+        <span asp-validation-for="fecha_inicio" class="error"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="fecha_fin"></label>
+        <input asp-for="fecha_fin" type="date" />
+        <span asp-validation-for="fecha_fin" class="error"></span>
+    </div>
+</div>

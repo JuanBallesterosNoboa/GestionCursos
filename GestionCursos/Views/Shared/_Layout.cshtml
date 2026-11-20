@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Gestión de Cursos</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<header class="encabezado">
+    <div class="barra">
+        <a class="marca" asp-controller="Home" asp-action="Index">GESTIÓN DE CURSOS</a>
+        <nav aria-label="Menú principal">
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Cursos" asp-action="Index">Cursos</a>
+            <a asp-controller="Estudiantes" asp-action="Index">Estudiantes</a>
+            <a asp-controller="Inscripciones" asp-action="Index">Inscripciones</a>
+        </nav>
+    </div>
+</header>
+<main class="contenedor">
+    @if (TempData["Mensaje"] is string mensaje)
+    {
+        <div class="aviso correcto" role="status">@mensaje</div>
+    }
+    @if (TempData["Error"] is string error)
+    {
+        <div class="aviso peligro" role="alert">@error</div>
+    }
+    @RenderBody()
+</main>
+<footer>Proyecto académico · ASP.NET Core MVC · C# · MySQL</footer>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
